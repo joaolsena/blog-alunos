@@ -40,7 +40,7 @@ useEffect(() => {
   return (
     <div className="App">
       <header>
-        <h1>Blog de Trabalhos dos Alunos de musica</h1>
+        <h1>Blog de Trabalhos dos Alwunos de musica</h1>
         <p>Compartilhe seus projetos e inspire outros!</p>
       </header>
 
