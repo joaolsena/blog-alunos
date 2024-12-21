@@ -11,25 +11,25 @@ function App() {
   });
 
   // Carregar projetos ao montar o componente
-useEffect(() => {
-  axios
-    .get("http://localhost:3000/projetos")
-    .then((response) => {
-      // Adicionando a data a cada projeto, se necessário
-      const projetosComData = response.data.map((projeto) => ({
-        ...projeto,
-        data: projeto.data || new Date().toLocaleDateString("pt-BR"), // Adicionando data se não existir
-      }));
-      setProjetos(projetosComData);
-    })
-    .catch((error) => console.error("Erro ao carregar projetos:", error));
-}, []);
+  useEffect(() => {
+    axios
+      .get("https://blog-backend-qskqn6yf6-joaos-projects-713ed323.vercel.app/projetos")
+      .then((response) => {
+        // Adicionando a data a cada projeto, se necessário
+        const projetosComData = response.data.map((projeto) => ({
+          ...projeto,
+          data: projeto.data || new Date().toLocaleDateString("pt-BR"), // Adicionando data se não existir
+        }));
+        setProjetos(projetosComData);
+      })
+      .catch((error) => console.error("Erro ao carregar projetos:", error));
+  }, []);
 
   // Adicionar novo projeto
   const handleAdicionarProjeto = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/adicionar", novoProjeto)
+      .post("https://blog-backend-qskqn6yf6-joaos-projects-713ed323.vercel.app/adicionar", novoProjeto)
       .then((response) => {
         setProjetos([...projetos, { ...novoProjeto, id: projetos.length + 1 }]);
         setNovoProjeto({ titulo: "", descricao: "", autor: "" }); // Limpar formulário
@@ -40,7 +40,7 @@ useEffect(() => {
   return (
     <div className="App">
       <header>
-        <h1>Blog de Trabalhos dos Alunos de musica</h1>
+        <h1>Blog de Trabalhos dos Alunos de música</h1>
         <p>Compartilhe seus projetos e inspire outros!</p>
       </header>
 
