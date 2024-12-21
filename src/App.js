@@ -13,7 +13,7 @@ function App() {
   // Carregar projetos ao montar o componente
   useEffect(() => {
     axios
-      .get("https://blog-backend-qskqn6yf6-joaos-projects-713ed323.vercel.app/projetos")
+      .get("https://api-m1o3.vercel.app/projetos")
       .then((response) => {
         // Adicionando a data a cada projeto, se necessário
         const projetosComData = response.data.map((projeto) => ({
