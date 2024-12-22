@@ -10,10 +10,11 @@ function App() {
     autor: "",
   });
 
+ 
   // Carregar projetos ao montar o componente
   useEffect(() => {
     axios
-      .get("https://api-m1o3.vercel.app/projetos")
+      .get("http://localhost:3000/projetos")
       .then((response) => {
         // Adicionando a data a cada projeto, se necessário
         const projetosComData = response.data.map((projeto) => ({
@@ -29,7 +30,7 @@ function App() {
   const handleAdicionarProjeto = (e) => {
     e.preventDefault();
     axios
-      .post("https://blog-backend-qskqn6yf6-joaos-projects-713ed323.vercel.app/adicionar", novoProjeto)
+      .post("http://localhost:3000/adicionar", novoProjeto)
       .then((response) => {
         setProjetos([...projetos, { ...novoProjeto, id: projetos.length + 1 }]);
         setNovoProjeto({ titulo: "", descricao: "", autor: "" }); // Limpar formulário
