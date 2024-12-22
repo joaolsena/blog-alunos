@@ -14,7 +14,7 @@ function App() {
   // Carregar projetos ao montar o componente
   useEffect(() => {
     axios
-      .get("http://localhost:3000/projetos")
+      .get("https://api-0l2b.onrender.com/projetos")
       .then((response) => {
         // Adicionando a data a cada projeto, se necessário
         const projetosComData = response.data.map((projeto) => ({
@@ -30,7 +30,7 @@ function App() {
   const handleAdicionarProjeto = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3000/adicionar", novoProjeto)
+      .post("https://api-0l2b.onrender.com/adicionar", novoProjeto)
       .then((response) => {
         setProjetos([...projetos, { ...novoProjeto, id: projetos.length + 1 }]);
         setNovoProjeto({ titulo: "", descricao: "", autor: "" }); // Limpar formulário
